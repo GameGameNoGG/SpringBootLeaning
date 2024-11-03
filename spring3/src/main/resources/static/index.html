@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+  <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>	
+<form id='test_form'  action="http://localhost:8080/index/cal" >
+
+
+
+
+  <h2>计算器</h2>
+    
+
+    <p>para1: <input type="text" name="para1"></p>
+    <p>para2: <input type="text" name="para2"></p>
+    
+   
+    <p>
+        <input type="submit">
+        <input type="reset">
+      </p>
+</form>
+<p id="result">result:  <input type="text" name="result"></p>
+<button id="button1">click</button>
+ 
+ 
+
+</body>
+
+
+
+<script>
+
+var button = document.getElementById('button1');
+ 
+ // 添加点击事件监听器
+ button.addEventListener('click', function() {
+   // 弹出提示框
+   $.ajax({
+              url: "http://localhost:8080/index/cal?para1=1&para2=2",
+              type: "get",
+              
+              success: function(data){
+                 
+                  alert(data);
+              },
+              error: function(msg){
+                  alert("ajax连接异常："+msg);
+              }
+          });
+      }
+ );
+
+
+   
+  </script>
+
+  
+
+
+</html>
